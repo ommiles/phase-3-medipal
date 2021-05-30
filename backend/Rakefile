@@ -1,8 +1,14 @@
 require_relative 'config/environment'
 require 'sinatra/activerecord/rake'
+require 'rails_erd/diagram/graphviz'
 
 desc 'rack console'
 task :console do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
   Pry.start
+end
+
+desc 'builds erd pdf'
+task :erd do
+  RailsERD::Diagram::Graphviz.create
 end
