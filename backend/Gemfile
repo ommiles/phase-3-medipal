@@ -6,10 +6,10 @@ gem 'rack-test'
 gem 'rspec'
 gem 'rack-cors'
 gem 'shotgun'
-gem "require_all"
-gem "activerecord", "~> 5.2"
-gem "sinatra-activerecord"
-gem "sqlite3"
-gem "rails-erd"
-gem "faker", "~> 2.9"
-gem "rails-erd"
+gem 'require_all'
+gem 'activerecord', '~> 5.2'
+gem 'sinatra-activerecord'
+gem 'sqlite3'
+gem 'rails-erd'
+gem 'faker', '~> 2.9'
+gem 'rails-erd'
