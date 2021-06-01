@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_052555) do
+ActiveRecord::Schema.define(version: 2021_06_01_052805) do
 
   create_table "activities", force: :cascade do |t|
     t.string "activity_name"
     t.integer "activity_frequency"
+  end
+
+  create_table "activity_monitors", force: :cascade do |t|
+    t.integer "activity_id"
+    t.integer "user_id"
+    t.integer "activity_points"
   end
 
   create_table "caregiver_directories", force: :cascade do |t|
