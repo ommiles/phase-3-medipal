@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "MediPal",
+            "group": "MediPal",
+            "database": "${workspaceFolder:phase-3-ruby-group-project-rack-react}/backend/db/development.sqlite3"
+        }
+    ]
+}
