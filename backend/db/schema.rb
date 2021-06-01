@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_06_01_040814) do
 
-  create_table "doctors_office", force: :cascade do |t|
+  create_table "doctors_offices", force: :cascade do |t|
     t.integer "physician_id"
     t.integer "user_id"
   end
