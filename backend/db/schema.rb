@@ -10,52 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_053037) do
-
-  create_table "activities", force: :cascade do |t|
-    t.string "activity_name"
-    t.integer "activity_frequency"
-  end
-
-  create_table "activity_monitors", force: :cascade do |t|
-    t.integer "activity_id"
-    t.integer "user_id"
-    t.integer "activity_points"
-  end
-
-  create_table "appointments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "physician_id"
-    t.datetime "appointment_date"
-  end
-
-  create_table "caregiver_directories", force: :cascade do |t|
-    t.integer "caregiver_id"
-    t.integer "user_id"
-  end
-
-  create_table "caregivers", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "doctors_offices", force: :cascade do |t|
-    t.integer "physician_id"
-    t.integer "user_id"
-  end
-
-  create_table "pharmacies", force: :cascade do |t|
-    t.string "name"
-    t.integer "pharmacy_phone_number"
-    t.string "street_address"
-    t.string "city"
-    t.string "state"
-    t.integer "postcode"
-  end
-
-  create_table "pharmacy_stocks", force: :cascade do |t|
-    t.integer "pharmacy_id"
-    t.integer "prescription_id"
-  end
+ActiveRecord::Schema.define(version: 2021_06_01_171931) do
 
   create_table "physicians", force: :cascade do |t|
     t.string "first_name"
@@ -66,25 +21,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_053037) do
     t.string "city"
     t.string "state"
     t.integer "postcode"
-  end
-
-  create_table "prescribed", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "prescription_id"
-    t.integer "physician_id"
-  end
-
-  create_table "prescriptions", force: :cascade do |t|
-    t.string "brand_name"
-    t.string "technical_name"
-    t.string "purpose"
-    t.string "dosage"
-    t.string "dosage_times"
-    t.string "size"
-    t.string "shape"
-    t.string "color"
-    t.string "side_effects"
-    t.integer "refill_number"
   end
 
   create_table "users", force: :cascade do |t|
