@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_051822) do
+ActiveRecord::Schema.define(version: 2021_06_01_052305) do
+
+  create_table "caregiver_directories", force: :cascade do |t|
+    t.integer "caregiver_id"
+    t.integer "user_id"
+  end
+
+  create_table "caregivers", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "doctors_offices", force: :cascade do |t|
     t.integer "physician_id"
