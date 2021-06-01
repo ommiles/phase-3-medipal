@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_184015) do
+ActiveRecord::Schema.define(version: 2021_06_01_194310) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string "activity_name"
+    t.integer "activity_frequency"
+  end
+
+  create_table "activities_patients", force: :cascade do |t|
+    t.integer "activity_id"
+    t.integer "patient_id"
+    t.integer "activity_points"
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.integer "physician_id"
@@ -23,6 +34,15 @@ ActiveRecord::Schema.define(version: 2021_06_01_184015) do
   create_table "appointments_prescriptions", force: :cascade do |t|
     t.integer "appointment_id"
     t.integer "prescription_id"
+  end
+
+  create_table "caregivers", force: :cascade do |t|
+    t.string "caregiver_name"
+  end
+
+  create_table "caregivers_patients", force: :cascade do |t|
+    t.integer "caregiver_id"
+    t.integer "patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
