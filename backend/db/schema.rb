@@ -10,23 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_171931) do
+ActiveRecord::Schema.define(version: 2021_06_01_180008) do
 
-  create_table "physicians", force: :cascade do |t|
+  create_table "appointments", force: :cascade do |t|
+    t.integer "physician_id"
+    t.integer "user_id"
+    t.string "appointment_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "specialty"
-    t.integer "physician_phone_number"
+    t.integer "age"
     t.string "street_address"
     t.string "city"
     t.string "state"
     t.integer "postcode"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "physicians", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "age"
+    t.string "specialty"
+    t.integer "physician_phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state"
