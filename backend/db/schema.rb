@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_180008) do
+ActiveRecord::Schema.define(version: 2021_06_01_184015) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "physician_id"
@@ -20,10 +20,24 @@ ActiveRecord::Schema.define(version: 2021_06_01_180008) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "appointments_prescriptions", force: :cascade do |t|
+    t.integer "appointment_id"
+    t.integer "prescription_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.integer "postcode"
+  end
+
+  create_table "pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.integer "pharmacy_phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state"
@@ -39,6 +53,19 @@ ActiveRecord::Schema.define(version: 2021_06_01_180008) do
     t.string "city"
     t.string "state"
     t.integer "postcode"
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.string "brand_name"
+    t.string "technical_name"
+    t.string "purpose"
+    t.string "dosage"
+    t.string "dosage_times"
+    t.string "size"
+    t.string "shape"
+    t.string "color"
+    t.string "side_effects"
+    t.integer "refill_number"
   end
 
 end
