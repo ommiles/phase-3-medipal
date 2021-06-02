@@ -4,9 +4,12 @@ import React, { Component } from 'react';
 class App extends Component {
 
   componentDidMount(){
-    fetch('localhost:9393/test')
-      .then(res => res.json)
+    fetch('http://localhost:9292/patient/1')
+      .then(res => res.json())
       .then(console.log)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {

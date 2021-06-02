@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_220939) do
+ActiveRecord::Schema.define(version: 2021_06_02_000619) do
 
   create_table "activities", force: :cascade do |t|
     t.string "activity_name"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_220939) do
 
   create_table "pharmacies", force: :cascade do |t|
     t.string "name"
-    t.integer "pharmacy_phone_number"
+    t.string "pharmacy_phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_220939) do
     t.string "first_name"
     t.string "last_name"
     t.string "specialty"
-    t.integer "physician_phone_number"
+    t.string "physician_phone_number"
     t.string "street_address"
     t.string "city"
     t.string "state"

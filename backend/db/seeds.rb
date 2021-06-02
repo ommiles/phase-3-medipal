@@ -9,33 +9,70 @@ Pharmacy.destroy_all
 Physician.destroy_all
 Prescription.destroy_all
 
-Patient.create(first_name: "Test First", last_name: "Test Last", age: 30, street_address: "123 Test Address Road", city: "Long Beach", state: "California", postcode: 90210)
-Physician.create(first_name: "Bob", last_name: "Gorks", specialty: "Oncology", physician_phone_number: 12345678901, street_address: "233 Some Street Ave.", city: "Long Beach", state: "California", postcode: 90854)
-Appointment.create(physician_id: 1, user_id: 1, appointment_date: "Mon, 17 Dec 2012 00:00:00 +0000")
-Pharmacy.create(name: "CVS", pharmacy_phone_number: 5647652893, street_address: "241 7th Ave.", city: "Long Beach", state: "California", postcode: 95346)
-Prescription.create(brand_name: "Brand Test", technical_name: "Technical Name Test", purpose: "upset stomach", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-AppointmentsPrescription.create(appointment_id: 1, prescription_id: 1)
-Caregiver.create(caregiver_name: "Tommy the Caregiver")
-Activity.create(activity_name: "Yoga", activity_frequency: 2)
-CaregiversPatient.create(caregiver_id: 1, patient_id: 1)
-ActivitiesPatient.create(activity_id: 1, patient_id: 1, activity_points: 3)
+california_cities = ["San Jose", "Sacramento", "Long Beach", "Berkeley", "San Francisco", "Compton"]
 
-Prescription.create(brand_name: "Lorcet", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "5mg/300mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
-Prescription.create(brand_name: "Norco", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "5mg/300mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
-Prescription.create(brand_name: "Vicodin", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "5mg/300mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
-Prescription.create(brand_name: "Zocor", technical_name: "Simvastin", purpose: "cholesterol", dosage: "10 mg", dosage_times: "Bedtime", size: "55 mm", shape: "u-shape",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Qbrelis", technical_name: "Lisinopril", purpose: "hypertension", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Zestril", technical_name: "Lisinopril", purpose: "hypertension", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Prinivil", technical_name: "Lisinopril", purpose: "hypertension", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Synthroid", technical_name: "Levothyroxine", purpose: "hypothyroidism", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Norvasc", technical_name: "Amlodipine Besylate", purpose: "blood pressure", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Prilosec OTC", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Zegerid", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Zegerid OTC", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "AzaSite", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Zmax", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Zithromax", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Glumetza", technical_name: "Metformin", purpose: "diabetes", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Fortamet", technical_name: "Metformin", purpose: "diabetes", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Glucophage", technical_name: "Metformin", purpose: "diabetes", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
-Prescription.create(brand_name: "Microzide", technical_name: "Hydrochlorothiazide", purpose: "hypertension", dosage: "125 mg", dosage_times: "Morning", size: ".5 mm", shape: "oval",  color: "blue", side_effects: "whatever side effects", refill_number: 0112536)
+5.times do 
+    Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, age: rand(65...110), street_address: "#{Faker::Address.street_address} #{Faker::Address.street_suffix}", city: california_cities.sample, state: "California", postcode: Faker::Address.zip)
+end
+
+specialty = ["Cardiology", "Nephrology", "Oncology", "Rheumatology", "Psychiatry", "Rheumatology", "Geriatrics"]
+
+5.times do
+    Physician.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, specialty: specialty.sample, physician_phone_number: Faker::PhoneNumber.cell_phone_in_e164, street_address: "#{Faker::Address.street_address} #{Faker::Address.street_suffix}", city: california_cities.sample, state: "California", postcode: Faker::Address.zip)
+end
+
+10.times do
+    Appointment.create(physician_id: Physician.ids.sample, patient_id: Patient.ids.sample, appointment_date: Faker::Date.between(from: '2021-06-15', to: '2021-07-15'))
+end
+
+15.times do
+    Pharmacy.create(name: "CVS", pharmacy_phone_number: Faker::PhoneNumber.cell_phone_in_e164, street_address: "#{Faker::Address.street_address} #{Faker::Address.street_suffix}", city: california_cities.sample, state: "California", postcode: Faker::Address.zip)
+    Pharmacy.create(name: "Rite-Aid", pharmacy_phone_number: Faker::PhoneNumber.cell_phone_in_e164, street_address: "#{Faker::Address.street_address} #{Faker::Address.street_suffix}", city: california_cities.sample, state: "California", postcode: Faker::Address.zip)
+    Pharmacy.create(name: "Walgreens", pharmacy_phone_number: Faker::PhoneNumber.cell_phone_in_e164, street_address: "#{Faker::Address.street_address} #{Faker::Address.street_suffix}", city: california_cities.sample, state: "California", postcode: Faker::Address.zip)
+end
+
+shapes = ["round", "square", "rectangle", "capsule", "almond", "pentagon", "lozenge", "diamond", "triangle", "core rod", "heart"]
+dosage_times = ["Morning", "Afternoon", "Evening", "Bedtime", "With Meals"]
+color = ["brick red", "pink", "white", "yellow", "blue", "grey", "yellow", "green"]
+
+Prescription.create(brand_name: "Lorcet", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
+Prescription.create(brand_name: "Norco", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
+Prescription.create(brand_name: "Vicodin", technical_name: "Hydrocodone & Acetaminophen", purpose: "pain relief", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "As Directed by Doctor", size: "15 mm", shape: "capsule-shape",  color: "pink", side_effects: "drowsiness, relaxed and calm feeling, and sleepiness", refill_number: 0112536)
+Prescription.create(brand_name: "Zocor", technical_name: "Simvastin", purpose: "cholesterol", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "55 mm", shape: "u-shape",  color: color.sample, side_effects: "muscle soreness or tiredness", refill_number: 0112536)
+Prescription.create(brand_name: "Qbrelis", technical_name: "Lisinopril", purpose: "hypertension", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: "diamond",  color: color.sample, side_effects: "cough, diarrhea or constipation, dizziness or lightheadedness, erection problems, feeling nervous", refill_number: 0112536)
+Prescription.create(brand_name: "Zestril", technical_name: "Lisinopril", purpose: "hypertension", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "cough, diarrhea or constipation, dizziness or lightheadedness, erection problems, feeling nervous", refill_number: 0112536)
+Prescription.create(brand_name: "Prinivil", technical_name: "Lisinopril", purpose: "hypertension", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: "triangle",  color: color.sample, side_effects: "cough, diarrhea or constipation, dizziness or lightheadedness, erection problems, feeling nervous", refill_number: 0112536)
+Prescription.create(brand_name: "Synthroid", technical_name: "Levothyroxine", purpose: "hypothyroidism", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "Afternoon", size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "muscle weakness, headache, leg cramps, nervousness, trouble sleeping, diarrhea, skin rash, partial hair loss", refill_number: 0112536)
+Prescription.create(brand_name: "Norvasc", technical_name: "Amlodipine Besylate", purpose: "blood pressure", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "anemia, constipation, dizziness, lightheadedness, or weakness when standing up", refill_number: 0112536)
+Prescription.create(brand_name: "Prilosec OTC", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "5 mm", shape: shapes.sample,  color: color.sample, side_effects: "headache, abdominal pain, diarrhea, nausea, vomiting, flatulence", refill_number: 0112536)
+Prescription.create(brand_name: "Zegerid", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "5 mm", shape: shapes.sample,  color: color.sample, side_effects: "headache, abdominal pain, diarrhea, nausea, vomiting, flatulence", refill_number: 0112536)
+Prescription.create(brand_name: "Zegerid OTC", technical_name: "Omeprazole", purpose: "acid reflux & frequent heartburn", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "headache, abdominal pain, diarrhea, nausea, vomiting, flatulence", refill_number: 0112536)
+Prescription.create(brand_name: "AzaSite", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "15 mm", shape: shapes.sample,  color: color.sample, side_effects: "stomach upset, diarrhea, loose stools, nausea, vomiting, abdominal pain", refill_number: 0112536)
+Prescription.create(brand_name: "Zmax", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "15 mm", shape: shapes.sample,  color: color.sample, side_effects: "stomach upset, diarrhea, loose stools, nausea, vomiting, abdominal pain", refill_number: 0112536)
+Prescription.create(brand_name: "Zithromax", technical_name: "Azithromycin", purpose: "bacterial infections", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "stomach upset, diarrhea, loose stools, nausea, vomiting, abdominal pain", refill_number: 0112536)
+Prescription.create(brand_name: "Glumetza", technical_name: "Metformin", purpose: "diabetes", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "5 mm", shape: shapes.sample,  color: color.sample, side_effects: "heartburn, stomach pain, nausea, vomiting bloating", refill_number: 0112536)
+Prescription.create(brand_name: "Fortamet", technical_name: "Metformin", purpose: "diabetes", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "7 mm", shape: shapes.sample,  color: color.sample, side_effects: "heartburn, stomach pain, nausea, vomiting bloating", refill_number: 0112536)
+Prescription.create(brand_name: "Glucophage", technical_name: "Metformin", purpose: "diabetes", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: "With Meals", size: "9 mm", shape: shapes.sample,  color: color.sample, side_effects: "heartburn, stomach pain, nausea, vomiting bloating", refill_number: 0112536)
+Prescription.create(brand_name: "Microzide", technical_name: "Hydrochlorothiazide", purpose: "hypertension", dosage: "#{rand(5...125).round(-1, half: :up)}" + " mg", dosage_times: dosage_times.sample, size: "#{rand(1...15).round(-1, half: :up)}" + " mm", shape: shapes.sample,  color: color.sample, side_effects: "cough, diarrhea or constipation, dizziness or lightheadedness, erection problems, feeling nervous", refill_number: 0112536)
+
+15.times do
+    AppointmentsPrescription.create(appointment_id: Appointment.ids.sample, prescription_id: Prescription.ids.sample)
+end
+
+10.times do
+    Caregiver.create(caregiver_name: Faker::Name.name)
+end
+
+activities = ["Stretch", "Walk", "Tai Chi", "Aerobics", "Resistance Bands", "Meditation", "Therapy", "Sleep", "Swimming", "Animal Therapy", "Balance Activities", "Strength Training", "Silver Sneakers Dance Class"]
+
+10.times do
+    Activity.create(activity_name: activities.sample, activity_frequency: rand(1...10))
+end
+
+5.times do
+    CaregiversPatient.create(caregiver_id: Caregiver.ids.sample, patient_id: Patient.ids.sample)
+end
+
+10.times do
+    ActivitiesPatient.create(activity_id: Activity.ids.sample, patient_id: Patient.ids.sample, activity_points: rand(1...6))
+end
